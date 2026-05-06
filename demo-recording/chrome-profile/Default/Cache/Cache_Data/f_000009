@@ -1,0 +1,213 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/resources/js/Pages/Auth/Login.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=9e9fb87d"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import Checkbox from "/resources/js/Components/Checkbox.jsx";
+import InputError from "/resources/js/Components/InputError.jsx";
+import InputLabel from "/resources/js/Components/InputLabel.jsx";
+import PrimaryButton from "/resources/js/Components/PrimaryButton.jsx";
+import TextInput from "/resources/js/Components/TextInput.jsx";
+import GuestLayout from "/resources/js/Layouts/GuestLayout.jsx";
+import { Head, Link, useForm } from "/node_modules/.vite/deps/@inertiajs_react.js?v=9e9fb87d";
+export default function Login({ status, canResetPassword }) {
+  _s();
+  const { data, setData, post, processing, errors, reset } = useForm({
+    email: "",
+    password: "",
+    remember: false
+  });
+  const submit = (e) => {
+    e.preventDefault();
+    post(route("login"), {
+      onFinish: () => reset("password")
+    });
+  };
+  return /* @__PURE__ */ jsxDEV(GuestLayout, { children: [
+    /* @__PURE__ */ jsxDEV(Head, { title: "Log in" }, void 0, false, {
+      fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+      lineNumber: 45,
+      columnNumber: 13
+    }, this),
+    status && /* @__PURE__ */ jsxDEV("div", { className: "mb-4 text-sm font-medium text-green-600", children: status }, void 0, false, {
+      fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+      lineNumber: 48,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("form", { onSubmit: submit, children: [
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV(InputLabel, { htmlFor: "email", value: "Email" }, void 0, false, {
+          fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+          lineNumber: 55,
+          columnNumber: 21
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          TextInput,
+          {
+            id: "email",
+            type: "email",
+            name: "email",
+            value: data.email,
+            className: "mt-1 block w-full",
+            autoComplete: "username",
+            isFocused: true,
+            onChange: (e) => setData("email", e.target.value)
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+            lineNumber: 57,
+            columnNumber: 21
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(InputError, { message: errors.email, className: "mt-2" }, void 0, false, {
+          fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+          lineNumber: 68,
+          columnNumber: 21
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+        lineNumber: 54,
+        columnNumber: 17
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-4", children: [
+        /* @__PURE__ */ jsxDEV(InputLabel, { htmlFor: "password", value: "Password" }, void 0, false, {
+          fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+          lineNumber: 72,
+          columnNumber: 21
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          TextInput,
+          {
+            id: "password",
+            type: "password",
+            name: "password",
+            value: data.password,
+            className: "mt-1 block w-full",
+            autoComplete: "current-password",
+            onChange: (e) => setData("password", e.target.value)
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+            lineNumber: 74,
+            columnNumber: 21
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(InputError, { message: errors.password, className: "mt-2" }, void 0, false, {
+          fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+          lineNumber: 84,
+          columnNumber: 21
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+        lineNumber: 71,
+        columnNumber: 17
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-4 block", children: /* @__PURE__ */ jsxDEV("label", { className: "flex items-center", children: [
+        /* @__PURE__ */ jsxDEV(
+          Checkbox,
+          {
+            name: "remember",
+            checked: data.remember,
+            onChange: (e) => setData("remember", e.target.checked)
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+            lineNumber: 89,
+            columnNumber: 25
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV("span", { className: "ms-2 text-sm text-gray-600", children: "Remember me" }, void 0, false, {
+          fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+          lineNumber: 96,
+          columnNumber: 25
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+        lineNumber: 88,
+        columnNumber: 21
+      }, this) }, void 0, false, {
+        fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+        lineNumber: 87,
+        columnNumber: 17
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-4 flex items-center justify-end", children: [
+        canResetPassword && /* @__PURE__ */ jsxDEV(
+          Link,
+          {
+            href: route("password.request"),
+            className: "rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+            children: "Forgot your password?"
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+            lineNumber: 104,
+            columnNumber: 11
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(PrimaryButton, { className: "ms-4", disabled: processing, children: "Log in" }, void 0, false, {
+          fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+          lineNumber: 112,
+          columnNumber: 21
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+        lineNumber: 102,
+        columnNumber: 17
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+      lineNumber: 53,
+      columnNumber: 13
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx",
+    lineNumber: 44,
+    columnNumber: 5
+  }, this);
+}
+_s(Login, "oQ+OyuKgMj6LHTZMdNXQQVFN1o4=", false, function() {
+  return [useForm];
+});
+_c = Login;
+var _c;
+$RefreshReg$(_c, "Login");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/HP/Desktop/laravel new/I want a business exhibition/new -app-builder/app-builder/resources/js/Pages/Auth/Login.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUEsUUFFTCx1QkFBQyxVQUFLLFdBQVUsOEJBQTRCLDJCQUE1QztBQUFBO0FBQUE7QUFBQTtBQUFBLGVBRUE7QUFBQSxXQVZKO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFXQSxLQVpKO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFhQTtBQUFBLE1BRUEsdUJBQUMsU0FBSSxXQUFVLHNDQUNWbEI7QUFBQUEsNEJBQ0c7QUFBQSxVQUFDO0FBQUE7QUFBQSxZQUNHLE1BQU1jLE1BQU0sa0JBQWtCO0FBQUEsWUFDOUIsV0FBVTtBQUFBLFlBQTBJO0FBQUE7QUFBQSxVQUZ4SjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsUUFLQTtBQUFBLFFBR0osdUJBQUMsaUJBQWMsV0FBVSxRQUFPLFVBQVVULFlBQVcsc0JBQXJEO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFFQTtBQUFBLFdBWko7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQWFBO0FBQUEsU0E5REo7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQStEQTtBQUFBLE9BeEVKO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0F5RUE7QUFFUjtBQUFDSixHQTNGdUJILE9BQUs7QUFBQSxVQUNrQ0QsT0FBTztBQUFBO0FBQUEsS0FEOUNDO0FBQUssSUFBQXFCO0FBQUEsYUFBQUEsSUFBQSIsIm5hbWVzIjpbIkNoZWNrYm94IiwiSW5wdXRFcnJvciIsIklucHV0TGFiZWwiLCJQcmltYXJ5QnV0dG9uIiwiVGV4dElucHV0IiwiR3Vlc3RMYXlvdXQiLCJIZWFkIiwiTGluayIsInVzZUZvcm0iLCJMb2dpbiIsInN0YXR1cyIsImNhblJlc2V0UGFzc3dvcmQiLCJfcyIsImRhdGEiLCJzZXREYXRhIiwicG9zdCIsInByb2Nlc3NpbmciLCJlcnJvcnMiLCJyZXNldCIsImVtYWlsIiwicGFzc3dvcmQiLCJyZW1lbWJlciIsInN1Ym1pdCIsImUiLCJwcmV2ZW50RGVmYXVsdCIsInJvdXRlIiwib25GaW5pc2giLCJ0YXJnZXQiLCJ2YWx1ZSIsImNoZWNrZWQiLCJfYyJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJMb2dpbi5qc3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IENoZWNrYm94IGZyb20gJ0AvQ29tcG9uZW50cy9DaGVja2JveCc7XG5pbXBvcnQgSW5wdXRFcnJvciBmcm9tICdAL0NvbXBvbmVudHMvSW5wdXRFcnJvcic7XG5pbXBvcnQgSW5wdXRMYWJlbCBmcm9tICdAL0NvbXBvbmVudHMvSW5wdXRMYWJlbCc7XG5pbXBvcnQgUHJpbWFyeUJ1dHRvbiBmcm9tICdAL0NvbXBvbmVudHMvUHJpbWFyeUJ1dHRvbic7XG5pbXBvcnQgVGV4dElucHV0IGZyb20gJ0AvQ29tcG9uZW50cy9UZXh0SW5wdXQnO1xuaW1wb3J0IEd1ZXN0TGF5b3V0IGZyb20gJ0AvTGF5b3V0cy9HdWVzdExheW91dCc7XG5pbXBvcnQgeyBIZWFkLCBMaW5rLCB1c2VGb3JtIH0gZnJvbSAnQGluZXJ0aWFqcy9yZWFjdCc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIExvZ2luKHsgc3RhdHVzLCBjYW5SZXNldFBhc3N3b3JkIH0pIHtcbiAgICBjb25zdCB7IGRhdGEsIHNldERhdGEsIHBvc3QsIHByb2Nlc3NpbmcsIGVycm9ycywgcmVzZXQgfSA9IHVzZUZvcm0oe1xuICAgICAgICBlbWFpbDogJycsXG4gICAgICAgIHBhc3N3b3JkOiAnJyxcbiAgICAgICAgcmVtZW1iZXI6IGZhbHNlLFxuICAgIH0pO1xuXG4gICAgY29uc3Qgc3VibWl0ID0gKGUpID0+IHtcbiAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xuXG4gICAgICAgIHBvc3Qocm91dGUoJ2xvZ2luJyksIHtcbiAgICAgICAgICAgIG9uRmluaXNoOiAoKSA9PiByZXNldCgncGFzc3dvcmQnKSxcbiAgICAgICAgfSk7XG4gICAgfTtcblxuICAgIHJldHVybiAoXG4gICAgICAgIDxHdWVzdExheW91dD5cbiAgICAgICAgICAgIDxIZWFkIHRpdGxlPVwiTG9nIGluXCIgLz5cblxuICAgICAgICAgICAge3N0YXR1cyAmJiAoXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtYi00IHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmVlbi02MDBcIj5cbiAgICAgICAgICAgICAgICAgICAge3N0YXR1c31cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgIDxmb3JtIG9uU3VibWl0PXtzdWJtaXR9PlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxJbnB1dExhYmVsIGh0bWxGb3I9XCJlbWFpbFwiIHZhbHVlPVwiRW1haWxcIiAvPlxuXG4gICAgICAgICAgICAgICAgICAgIDxUZXh0SW5wdXRcbiAgICAgICAgICAgICAgICAgICAgICAgIGlkPVwiZW1haWxcIlxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT1cImVtYWlsXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU9XCJlbWFpbFwiXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17ZGF0YS5lbWFpbH1cbiAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cIm10LTEgYmxvY2sgdy1mdWxsXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9Db21wbGV0ZT1cInVzZXJuYW1lXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIGlzRm9jdXNlZD17dHJ1ZX1cbiAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0RGF0YSgnZW1haWwnLCBlLnRhcmdldC52YWx1ZSl9XG4gICAgICAgICAgICAgICAgICAgIC8+XG5cbiAgICAgICAgICAgICAgICAgICAgPElucHV0RXJyb3IgbWVzc2FnZT17ZXJyb3JzLmVtYWlsfSBjbGFzc05hbWU9XCJtdC0yXCIgLz5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtNFwiPlxuICAgICAgICAgICAgICAgICAgICA8SW5wdXRMYWJlbCBodG1sRm9yPVwicGFzc3dvcmRcIiB2YWx1ZT1cIlBhc3N3b3JkXCIgLz5cblxuICAgICAgICAgICAgICAgICAgICA8VGV4dElucHV0XG4gICAgICAgICAgICAgICAgICAgICAgICBpZD1cInBhc3N3b3JkXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU9XCJwYXNzd29yZFwiXG4gICAgICAgICAgICAgICAgICAgICAgICBuYW1lPVwicGFzc3dvcmRcIlxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e2RhdGEucGFzc3dvcmR9XG4gICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJtdC0xIGJsb2NrIHctZnVsbFwiXG4gICAgICAgICAgICAgICAgICAgICAgICBhdXRvQ29tcGxldGU9XCJjdXJyZW50LXBhc3N3b3JkXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0RGF0YSgncGFzc3dvcmQnLCBlLnRhcmdldC52YWx1ZSl9XG4gICAgICAgICAgICAgICAgICAgIC8+XG5cbiAgICAgICAgICAgICAgICAgICAgPElucHV0RXJyb3IgbWVzc2FnZT17ZXJyb3JzLnBhc3N3b3JkfSBjbGFzc05hbWU9XCJtdC0yXCIgLz5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtNCBibG9ja1wiPlxuICAgICAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXJcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxDaGVja2JveFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU9XCJyZW1lbWJlclwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY2hlY2tlZD17ZGF0YS5yZW1lbWJlcn1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldERhdGEoJ3JlbWVtYmVyJywgZS50YXJnZXQuY2hlY2tlZClcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibXMtMiB0ZXh0LXNtIHRleHQtZ3JheS02MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBSZW1lbWJlciBtZVxuICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC00IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktZW5kXCI+XG4gICAgICAgICAgICAgICAgICAgIHtjYW5SZXNldFBhc3N3b3JkICYmIChcbiAgICAgICAgICAgICAgICAgICAgICAgIDxMaW5rXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaHJlZj17cm91dGUoJ3Bhc3N3b3JkLnJlcXVlc3QnKX1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJyb3VuZGVkLW1kIHRleHQtc20gdGV4dC1ncmF5LTYwMCB1bmRlcmxpbmUgaG92ZXI6dGV4dC1ncmF5LTkwMCBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6cmluZy0yIGZvY3VzOnJpbmctaW5kaWdvLTUwMCBmb2N1czpyaW5nLW9mZnNldC0yXCJcbiAgICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBGb3Jnb3QgeW91ciBwYXNzd29yZD9cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvTGluaz5cbiAgICAgICAgICAgICAgICAgICAgKX1cblxuICAgICAgICAgICAgICAgICAgICA8UHJpbWFyeUJ1dHRvbiBjbGFzc05hbWU9XCJtcy00XCIgZGlzYWJsZWQ9e3Byb2Nlc3Npbmd9PlxuICAgICAgICAgICAgICAgICAgICAgICAgTG9nIGluXG4gICAgICAgICAgICAgICAgICAgIDwvUHJpbWFyeUJ1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZm9ybT5cbiAgICAgICAgPC9HdWVzdExheW91dD5cbiAgICApO1xufVxuIl0sImZpbGUiOiJDOi9Vc2Vycy9IUC9EZXNrdG9wL2xhcmF2ZWwgbmV3L0kgd2FudCBhIGJ1c2luZXNzIGV4aGliaXRpb24vbmV3IC1hcHAtYnVpbGRlci9hcHAtYnVpbGRlci9yZXNvdXJjZXMvanMvUGFnZXMvQXV0aC9Mb2dpbi5qc3gifQ==

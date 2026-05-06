@@ -1,0 +1,76 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: Laravel App ID to load from the runtime API
+        required: true
+        type: string
+      api_base_url:
+        description: Laravel API base URL, e.g. https://appbuilder.example.com
+        required: true
+        type: string
+      preview_token:
+        description: Private preview token. Leave empty for public apps.
+        required: false
+        type: string
+      build_name:
+        description: Artifact name
+        required: false
+        default: appbuilder-android
+        type: string
+
+jobs:
+  android-apk:
+    name: Build APK
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: app-builder-flutter-template
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Generate Flutter platform files
+        run: flutter create --platforms=android .
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze runtime
+        run: flutter analyze
+
+      - name: Build Android APK
+        run: >
+          flutter build apk --release
+          --dart-define=API_BASE_URL=${{ inputs.api_base_url }}
+          --dart-define=APP_ID=${{ inputs.app_id }}
+          --dart-define=PREVIEW_TOKEN=${{ inputs.preview_token }}
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.build_name }}-app-${{ inputs.app_id }}-apk
+          path: app-builder-flutter-template/build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload generated Flutter project
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.build_name }}-app-${{ inputs.app_id }}-flutter-project
+          path: |
+            app-builder-flutter-template/**
+            !app-builder-flutter-template/build/**
+            !app-builder-flutter-template/.dart_tool/**
+          if-no-files-found: error
+          retention-days: 14

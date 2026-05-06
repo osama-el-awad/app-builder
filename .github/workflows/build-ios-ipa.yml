@@ -1,0 +1,69 @@
+name: Build iOS IPA
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: Laravel App ID to load from the runtime API
+        required: true
+        type: string
+      api_base_url:
+        description: Laravel API base URL
+        required: true
+        type: string
+      preview_token:
+        description: Private preview token
+        required: false
+        type: string
+      build_name:
+        description: Artifact name
+        required: false
+        default: appbuilder-ios
+        type: string
+
+jobs:
+  ios-ipa:
+    name: Build IPA
+    runs-on: macos-latest # Critical for iOS builds
+
+    defaults:
+      run:
+        working-directory: app-builder-flutter-template
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Generate Flutter platform files
+        run: flutter create --platforms=ios .
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build iOS IPA (No-Codesign)
+        run: >
+          flutter build ipa --release --no-codesign
+          --dart-define=API_BASE_URL=${{ inputs.api_base_url }}
+          --dart-define=APP_ID=${{ inputs.app_id }}
+          --dart-define=PREVIEW_TOKEN=${{ inputs.preview_token }}
+
+      - name: Upload iOS archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.build_name }}-app-${{ inputs.app_id }}-xcarchive
+          path: app-builder-flutter-template/build/ios/archive/Runner.xcarchive
+          retention-days: 14
+
+      - name: Upload iOS IPA (if available)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.build_name }}-app-${{ inputs.app_id }}-ipa
+          path: app-builder-flutter-template/build/ios/ipa/*.ipa
+          retention-days: 14
+
